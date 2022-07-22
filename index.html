@@ -5,8 +5,63 @@
     <meta charset="UTF-8">
     <title>CV laromanov</title>
     <link rel="stylesheet" href="style.css"/>
+    <style>
+        [data-tooltip] {
+            position: relative; /* Относительное позиционирование */
+        }
+        [data-tooltip]::after {
+            content: attr(data-tooltip); /* Выводим текст */
+            position: absolute; /* Абсолютное позиционирование */
+            width: 300px; /* Ширина подсказки */
+            left: 0; top: 0; /* Положение подсказки */
+            background: floralwhite;
+            padding: 0.5em; /* Поля вокруг текста */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Параметры тени */
+            pointer-events: none; /* Подсказка */
+            opacity: 0; /* Подсказка невидима */
+            transition: 1s; /* Время появления подсказки */
+        }
+        [data-tooltip]:hover::after {
+            opacity: 1; /* Показываем подсказку */
+            top: 4em; /* Положение подсказки */
+        }
+    </style>
 </head>
 <body class="container" id="cont">
+<script language=JavaScript>
+    let d = ["0", "0", "0"];
+    let site = ["0", "0", "0"];
+    let year = ["0", "0", "0"];
+    let month = ["0", "0", "0"];
+    /**/
+    site[0] = new Date('october 1, 2020');
+    d[0] = new Date();
+    year[0] = (d[0].getTime() - site[0].getTime()) / (1000*60*60*24*30*12);
+    month[0] = ((d[0].getTime() - site[0].getTime()) / (1000*60*60*24*30)) % 12;
+    /**/
+    site[1] = new Date('october 1, 2021'); //
+    d[1] = new Date('may 6, 2022');
+    year[1] = (d[1].getTime() - site[1].getTime()) / (1000*60*60*24*30*12);
+    month[1] = ((d[1].getTime() - site[1].getTime()) / (1000*60*60*24*31)) % 12;
+    /**/
+    site[2] = new Date('may 1, 2022'); //
+    d[2] = new Date();
+    year[2] = (d[2].getTime() - site[2].getTime()) / (1000*60*60*24*30*12);
+    month[2] = ((d[2].getTime() - site[2].getTime()) / (1000*60*60*24*31)) % 12;
+    /**/
+    let sum_stage = [0, 0];
+    for (var i = 0; i < year.length; i++) {
+        sum_stage[0] += Math.floor(year[i]);
+        sum_stage[1] += month[i];
+        console.log (Math.floor(year[0]));
+    }
+    sum_stage[0] += Math.floor(sum_stage[1] / 12);
+    sum_stage[1] = sum_stage[1] % 12;
+    /**/
+    let sum_calendar = [0, 0];
+    sum_calendar[0] = Math.floor((site[site.length - 1].getTime() - site[0].getTime()) / (1000*60*60*24*30*12));
+    sum_calendar[1] = ((d[d.length - 1].getTime() - site[0].getTime()) / (1000*60*60*24*30)) % 12;
+</SCRIPT>
 <div class="main">
     <div class="main_info">
         <div class="main_info1">
@@ -31,7 +86,7 @@
 </div>
 <div class="developer">
     <div class="developer_main">
-        Project Manager
+        Технический Project Manager
     </div>
     <div class="developer_dop">
         Полная занятость
@@ -42,39 +97,45 @@
         Опыт работы
     </a>
     <a class="performance_main2">
-
     </a>
+    <div class="performance_flex">
+        <div class="performance_time"  data-tooltip="Поле Стаж рассчитывается как сумма отрезков, Календ. прод. рассчитывается без учёта пересечений (от точки до точки)">
+            Стаж:
+            <script language=JavaScript>
+                if (Math.floor(sum_stage[0]) != 0) document.write(Math.floor(sum_stage[0]) + " года\n");
+                if (Math.round(sum_stage[1]) != 0) document.write(Math.round(sum_stage[1]) + " месяцев");
+            </SCRIPT><br>
+            Календ. прод.:
+            <script language=JavaScript>
+                if (Math.floor(sum_calendar[0]) != 0) document.write(Math.floor(sum_calendar[0]) + " год\n");
+                if (Math.round(sum_calendar[1]) != 0) document.write(Math.round(sum_calendar[1]) + " месяцев");
+            </SCRIPT>
+        </div>
+    </div>
+    <br>
     <div class="performance_flex">
         <div class="performance_time">
             Май 2022 - настоящее время <br>
-            <script language=JavaScript> 
-						site = new Date('may 1, 2022'); //
-						d_2 = new Date();
-						year_2 = (d_2.getTime() - site.getTime()) / (1000*60*60*24*30*12);
-						month_2 = ((d_2.getTime() - site.getTime()) / (1000*60*60*24*31)) % 12;
-						if (Math.floor(year_2) != 0) document.write(Math.floor(year_2) + " год\n");
-						if (Math.round(month_2) != 0) document.write(Math.round(month_2) + " месяца");
-					</SCRIPT>
+            <script language=JavaScript>
+                if (Math.floor(year[2]) != 0) document.write(Math.floor(year[2]) + " год\n");
+                if (Math.round(month[2]) != 0) document.write(Math.round(month[2]) + " месяца");
+            </SCRIPT>
         </div>
         <div class="performance_basic">
             <div>ПАО "Сбербанк"</div>
             Технический Project Manager<br><br>
-            Занимаюсь согласованием и проектированием интеграций внутренних сервисов экосистемы, участвую в работе кластера Smile, веду проекты по улучшению сервиса.<br><br><br>
+            Занимался проектированием LMS для АС банка и ДЗО для ведения задач по интеграциям экосистемы СБЕРа, а также курировал delivery процесс на всех этапах разработки (ИФТ, ПСИ, ПРОМ). Занимаюсь развитием продукта, работой с гипотезами и оценкой ключевых метрик.
+            Участвую в создании интеграций через продукт “Smile”, ведя переговоры на уровне владельцев продуктов по горизонтали, проектирую, а также веду команду разработки и сопровождения по каждой из интеграций.<br><br><br>
         </div>
     </div>
     <br>
-
     <div class="performance_flex">
         <div class="performance_time">
             Октябрь 2021 - Май 2022 <br>
-            <script language=JavaScript> 
-						site = new Date('october 1, 2021'); //
-						d_2 = new Date('may 6, 2022');
-						year_2 = (d_2.getTime() - site.getTime()) / (1000*60*60*24*30*12);
-						month_2 = ((d_2.getTime() - site.getTime()) / (1000*60*60*24*31)) % 12;
-						if (Math.floor(year_2) != 0) document.write(Math.floor(year_2) + " год\n");
-						if (Math.round(month_2) != 0) document.write(Math.round(month_2) + " месяцев");
-					</SCRIPT>
+            <script language=JavaScript>
+                if (Math.floor(year[1]) != 0) document.write(Math.floor(year[1]) + " год\n");
+                if (Math.round(month[1]) != 0) document.write(Math.round(month[1]) + " месяцев");
+            </SCRIPT>
         </div>
         <div class="performance_basic">
             <div>OUTSIDE DIGITAL</div>
@@ -86,19 +147,16 @@
     <div class="performance_flex">
         <div class="performance_time">
             Октябрь 2020 - настоящее время <br>
-            		<script language=JavaScript> 
-						site = new Date('october 1, 2020'); //
-						d_1 = new Date();
-						year_1 = (d_1.getTime() - site.getTime()) / (1000*60*60*24*30*12);
-						month_1 = ((d_1.getTime() - site.getTime()) / (1000*60*60*24*30)) % 12;
-						if (Math.floor(year_1) != 0) document.write(Math.floor(year_1) + " год\n");
-						if (Math.round(month_1) != 0) document.write(Math.round(month_1) + " месяцев");
-					</SCRIPT>
+            <script language=JavaScript>
+                if (Math.floor(year[0]) != 0) document.write(Math.floor(year[0]) + " год\n");
+                if (Math.round(month[0]) != 0) document.write(Math.round(month[0]) + " месяцев");
+            </SCRIPT>
         </div>
         <div class="performance_basic">
             <div>НИУ ВШЭ</div>
-            Программист<br><br>
-            Разработка программного обеспечения моделирования различных аспектов функционирования малого космического аппарата; разработка космических аппаратов; организация мероприятий. Разработка сервиса: <a href="https://space.miem.hse.ru/" target="_blank">space.miem.hse.ru</a><br><br><br>
+            Project Manager<br><br>
+            Ведение проектов «Виртуальный космос», предназначенных для замены множества тестовых стендов клиент-серверным приложением.
+            Разработка программного обеспечения моделирования различных аспектов функционирования малого космического аппарата; разработка ПО для космических аппаратов; организация мероприятий.Разработка сервиса: <a href="https://space.miem.hse.ru/" target="_blank">space.miem.hse.ru</a><br><br><br>
         </div>
     </div>
 </div>
