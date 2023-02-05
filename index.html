@@ -102,12 +102,18 @@
             Стаж:
             <script language=JavaScript>
                 if (Math.floor(sum_stage[0]) != 0) document.write(Math.floor(sum_stage[0]) + " года\n");
-                if (Math.round(sum_stage[1]) != 0) document.write(Math.round(sum_stage[1]) + " месяца");
+                if (Math.round(sum_stage[1]) != 0) document.write(Math.round(sum_stage[1]) + " месяцев");
             </SCRIPT><br>
             Календ. прод.:
             <script language=JavaScript>
                 if (Math.floor(sum_calendar[0]) != 0) document.write(Math.floor(sum_calendar[0]) + " года\n");
-                if (Math.round(sum_calendar[1]) != 0) document.write(Math.round(sum_calendar[1]) + " месяца");
+                if (Math.round(sum_calendar[1]) != 0) {
+			if (Math.round(sum_calendar[1]) == 1)
+				document.write(Math.round(sum_calendar[1]) + " месяц");
+			else if (Math.round(sum_calendar[1]) < 5)
+				document.write(Math.round(sum_calendar[1]) + " месяца");
+			else document.write(Math.round(sum_calendar[1]) + " месяцев");
+		}
             </SCRIPT>
         </div>
     </div>
