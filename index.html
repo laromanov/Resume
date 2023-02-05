@@ -74,7 +74,7 @@
             <script language=JavaScript>
 		if (Math.floor(age) % 10 == 1)
 			document.write(Math.floor(age) + " год (06.12.2001)");
-		else if (Math.floor(age) % 10 < 5)
+		else if (Math.floor(age) % 10 < 5 && Math.floor(age) % 10 > 1)
 			document.write(Math.floor(age) + " года (06.12.2001)");
 		else document.write(Math.floor(age) + " лет (06.12.2001)");
             </SCRIPT>
@@ -114,7 +114,7 @@
                 if (Math.floor(sum_stage[0]) != 0) {
 			if (Math.floor(sum_stage[0]) % 10 == 1)
 				document.write(Math.floor(sum_stage[0]) + " год\n");
-			else if (Math.floor(sum_stage[0]) % 10 < 5)
+			else if (Math.floor(sum_stage[0]) % 10 < 5 && Math.floor(sum_stage[0]) % 10 > 1)
 				document.write(Math.floor(sum_stage[0]) + " года\n");
 			else document.write(Math.floor(sum_stage[0]) + " лет\n");	
 		}
@@ -131,7 +131,7 @@
                 if (Math.floor(sum_calendar[0]) != 0) {
 			if (Math.floor(sum_calendar[0]) % 10 == 1)
 				document.write(Math.floor(sum_calendar[0]) + " год\n");
-			else if (Math.floor(sum_calendar[0]) % 10 < 5)
+			else if (Math.floor(sum_calendar[0]) % 10 < 5 && Math.floor(sum_calendar[0]) % 10 > 1)
 				document.write(Math.floor(sum_calendar[0]) + " года\n");
 			else document.write(Math.floor(sum_calendar[0]) + " лет\n");	
 		}
@@ -153,7 +153,7 @@
                 if (Math.floor(year[2]) != 0) {
 			if (Math.floor(year[2]) % 10 == 1)
 				document.write(Math.floor(year[2]) + " год\n");
-			else if (Math.floor(year[2]) % 10 < 5)
+			else if (Math.floor(year[2]) % 10 < 5 && Math.floor(year[2]) % 10 > 1)
 				document.write(Math.floor(year[2]) + " года\n");
 			else document.write(Math.floor(year[2]) + " лет\n");	
 		}
@@ -181,7 +181,7 @@
                 if (Math.floor(year[1]) != 0)  {
 			if (Math.floor(year[1]) % 10 == 1)
 				document.write(Math.floor(year[1]) + " год\n");
-			else if (Math.floor(year[1]) % 10 < 5)
+			else if (Math.floor(year[1]) % 10 < 5 && Math.floor(year[1]) % 10 > 1)
 				document.write(Math.floor(year[1]) + " года\n");
 			else document.write(Math.floor(year[1]) + " лет\n");	
 		}
@@ -208,7 +208,7 @@
                 if (Math.floor(year[0]) != 0)  {
 			if (Math.floor(year[0]) % 10 == 1)
 				document.write(Math.floor(year[0]) + " год\n");
-			else if (Math.floor(year[0]) % 10 < 5)
+			else if (Math.floor(year[0]) % 10 < 5 && Math.floor(year[0]) % 10 > 1)
 				document.write(Math.floor(year[0]) + " года\n");
 			else document.write(Math.floor(year[0]) + " лет\n");	
 		}
