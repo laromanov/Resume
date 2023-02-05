@@ -29,10 +29,14 @@
 </head>
 <body class="container" id="cont">
 <script language=JavaScript>
+    let age = new Date();
+    let burn = new Date('december 6, 2001');
     let d = ["0", "0", "0"];
     let site = ["0", "0", "0"];
     let year = ["0", "0", "0"];
     let month = ["0", "0", "0"];
+    /**/
+    age = (age.getTime() - burn.getTime()) / (1000*60*60*24*30*12);
     /**/
     site[0] = new Date('october 1, 2020');
     d[0] = new Date();
@@ -67,7 +71,13 @@
             Романов Леонид Андреевич
         </div>
         <div class="main_info2">
-            20 лет (06.12.2001)
+            <script language=JavaScript>
+		if (Math.floor(age) % 10 == 1)
+			document.write(Math.floor(age) + " год (06.12.2001)");
+		else if (Math.floor(age) % 10 < 5)
+			document.write(Math.floor(age) + " года (06.12.2001)");
+		else document.write(Math.floor(age) + " лет (06.12.2001)");
+            </SCRIPT>
         </div>
         <div style="font-size: 16px" class="main_info2">
             8-916-633-26-70
