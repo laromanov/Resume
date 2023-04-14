@@ -10,7 +10,6 @@ function ChangeTheme()
 
     var currTheme = link.getAttribute("href");
     var theme = "";
-    console.log(currTheme);
 
     if(currTheme == lightTheme)
     {
