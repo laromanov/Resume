@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>CV laromanov</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="/styles/light.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/prefered.css" id="theme-link">
     <style>
         [data-tooltip] {
             position: relative; /* Относительное позиционирование */
@@ -27,7 +28,29 @@
         }
     </style>
 </head>
+
 <body class="container" id="cont">
+<div class="theme_button" id="theme-button"><img src="images/86093c87fb4ee8bea5eb27e183aac71f.svg" class="theme"></div>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("img.theme").each(function () {
+        var $img = $(this);
+        var imgClass = $img.attr("class");
+        var imgURL = $img.attr("src");
+        $.get(imgURL, function (data) {
+            var $svg = $(data).find("svg");
+            if (typeof imgClass !== "undefined") {
+                $svg = $svg.attr("class", imgClass + " replaced-svg");
+            }
+            $svg = $svg.removeAttr("xmlns:a");
+            if (!$svg.attr("viewBox") && $svg.attr("height") && $svg.attr("width")) {
+                $svg.attr("viewBox", "0 0 " + $svg.attr("height") + " " + $svg.attr("width"))
+            }
+            $img.replaceWith($svg);
+        }, "xml");
+    });
+</script>
+
 <script language=JavaScript>
     let age = new Date();
     let born = new Date('december 6, 2001');
@@ -335,4 +358,6 @@
     </div>
 </div>
 </body>
+
+<script type="text/javascript" src="Save.js"></script>
 </html>
