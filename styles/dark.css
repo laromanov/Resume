@@ -24,6 +24,9 @@
 .theme_button {
   width: 25px;
   height: 25px;
+  position: fixed;
+  left: 100;
+  top: 10;
 }
 
 :focus, :active {
@@ -89,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /*--------------------*/
 body {
-  max-width: 70%;
+  max-width: 80%;
   margin: 10px auto;
   -webkit-box-shadow: 0 0 10px #333;
           box-shadow: 0 0 10px #333;
