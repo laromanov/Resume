@@ -27,6 +27,7 @@
   position: fixed;
   left: 100;
   top: 10;
+  cursor: pointer;
 }
 
 :focus, :active {
