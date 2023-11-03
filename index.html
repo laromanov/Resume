@@ -33,10 +33,10 @@
 <script language=JavaScript>
     let age = new Date();
     let born = new Date('december 6, 2001');
-    let d = ["0", "0", "0", "0"];
-    let site = ["0", "0", "0", "0"];
-    let year = ["0", "0", "0", "0"];
-    let month = ["0", "0", "0", "0"];
+    let d = ["0", "0", "0", "0", "0"];
+    let site = ["0", "0", "0", "0", "0"];
+    let year = ["0", "0", "0", "0", "0"];
+    let month = ["0", "0", "0", "0", "0"];
     /**/
     age = (age.getTime() - born.getTime()) / (1000*60*60*24*30*12);
     /**/
@@ -56,9 +56,14 @@
     month[2] = ((d[2].getTime() - site[2].getTime()) / (1000*60*60*24*31)) % 12;
     /**/
     site[3] = new Date('march 1, 2023'); //
-    d[3] = new Date();
+    d[3] = new Date('november 1, 2023');
     year[3] = (d[3].getTime() - site[3].getTime()) / (1000*60*60*24*30*12);
     month[3] = ((d[3].getTime() - site[3].getTime()) / (1000*60*60*24*31)) % 12;
+    /**/
+    site[4] = new Date('november 3, 2023'); //
+    d[4] = new Date();
+    year[4] = (d[4].getTime() - site[4].getTime()) / (1000*60*60*24*30*12);
+    month[4] = ((d[4].getTime() - site[4].getTime()) / (1000*60*60*24*31)) % 12;
     /**/
     let sum_stage = [0, 0];
     for (var i = 0; i < year.length; i++) {
@@ -155,7 +160,37 @@
     <br>
     <div class="performance_flex">
         <div class="performance_time">
-            Март 2023 - настоящее время <br>
+            Ноябрь 2023 - настоящее время <br>
+            <script language=JavaScript>
+                if (Math.floor(year[4]) != 0) {
+                    if (Math.floor(year[4]) % 10 == 1)
+                        document.write(Math.floor(year[4]) + " год\n");
+                    else if (Math.floor(year[4]) % 10 < 5 && Math.floor(year[4]) % 10 > 1)
+                        document.write(Math.floor(year[4]) + " года\n");
+                    else document.write(Math.floor(year[4]) + " лет\n");
+                }
+                if (Math.round(month[4]) != 0) {
+                    if (Math.round(month[4]) == 1)
+                        document.write(Math.round(month[4]) + " месяц");
+                    else if (Math.round(month[4]) < 5)
+                        document.write(Math.round(month[4]) + " месяца");
+                    else document.write(Math.round(month[4]) + " месяцев");
+                }
+            </SCRIPT>
+        </div>
+        <div class="performance_basic">
+            <div>ПАО "Банк ВТБ"</div>
+            IT Project Leader<br><br>
+	    Отвечаю за достижение целей и выполнение поставленных IT задач в проектах Казначейства;<br><br>
+	    Планирую работы, оцениваю сроки и ресурсы необходимые для выполнения задач, управляю выполнением планов проектов;<br><br>
+	    Выстраиваю коммуникации, управляю рисками, закупками, ресурсами, выполняю весь спектр задач по управлению проектами;<br><br>
+	    Готовлю проектную документацию и отчитываться по статусу реализации на управляющих комитетах и рабочих группах.<br><br><br>
+        </div>
+    </div>
+    <br>
+    <div class="performance_flex">
+        <div class="performance_time">
+            Март 2023 - Ноябрь 2023 <br>
             <script language=JavaScript>
                 if (Math.floor(year[3]) != 0) {
                     if (Math.floor(year[3]) % 10 == 1)
