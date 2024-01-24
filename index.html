@@ -120,7 +120,7 @@
     <a class="performance_main2">
     </a>
     <div class="performance_flex">
-        <div class="performance_time"  data-tooltip="Поле Стаж рассчитывается как сумма отрезков, Календ. прод. рассчитывается без учёта пересечений (от точки до точки)">
+        <div class="performance_time">
             Стаж:
             <script language=JavaScript>
                 if (Math.floor(sum_stage[0]) != 0) {
@@ -136,23 +136,6 @@
 			else if (Math.round(sum_stage[1]) < 5)
 				document.write(Math.round(sum_stage[1]) + " месяца");
 			else document.write(Math.round(sum_stage[1]) + " месяцев");
-		}
-            </SCRIPT><br>
-            Календ. прод.:
-            <script language=JavaScript>
-                if (Math.floor(sum_calendar[0]) != 0) {
-			if (Math.floor(sum_calendar[0]) % 10 == 1)
-				document.write(Math.floor(sum_calendar[0]) + " год\n");
-			else if (Math.floor(sum_calendar[0]) % 10 < 5 && Math.floor(sum_calendar[0]) % 10 > 1)
-				document.write(Math.floor(sum_calendar[0]) + " года\n");
-			else document.write(Math.floor(sum_calendar[0]) + " лет\n");	
-		}
-                if (Math.round(sum_calendar[1]) != 0) {
-			if (Math.round(sum_calendar[1]) == 1)
-				document.write(Math.round(sum_calendar[1]) + " месяц");
-			else if (Math.round(sum_calendar[1]) < 5)
-				document.write(Math.round(sum_calendar[1]) + " месяца");
-			else document.write(Math.round(sum_calendar[1]) + " месяцев");
 		}
             </SCRIPT>
         </div>
